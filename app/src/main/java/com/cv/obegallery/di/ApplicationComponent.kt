@@ -1,6 +1,6 @@
 package com.cv.obegallery.di
 
-import com.cv.obegallery.MainActivity
+import com.cv.obegallery.presentation.main.MainActivity
 import dagger.Component
 import javax.inject.Singleton
 
@@ -9,7 +9,4 @@ import javax.inject.Singleton
 interface ApplicationComponent {
 
     fun inject(mainActivity: MainActivity)
-
-
-
 }

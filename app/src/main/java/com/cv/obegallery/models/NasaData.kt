@@ -1,6 +1,6 @@
 package com.cv.obegallery.models
 
-data class SpaceFact(
+data class NasaData(
     val copyright: String,
     val date: String,
     val explanation: String,
