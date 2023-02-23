@@ -14,6 +14,8 @@ class MainViewModel @Inject constructor(private val repository: NasaDataReposito
     val nasaDataLiveData: LiveData<Result<ArrayList<NasaData>>>
         get() = repository.nasaData
 
+    var selectedIndex = 0
+
     fun getNasaData() {
         viewModelScope.launch {
             repository.getNasaData()

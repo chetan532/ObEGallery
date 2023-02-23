@@ -8,6 +8,20 @@
     <fragment
         android:id="@+id/homeGridFragment"
         android:name="com.cv.obegallery.presentation.home.HomeGridFragment"
-        android:label="fragment_home_grid"
-        tools:layout="@layout/fragment_home_grid" />
+        android:label="@string/home"
+        tools:layout="@layout/fragment_home_grid">
+        <action
+            android:id="@+id/action_factsFragment_to_detailsFragment"
+            app:destination="@id/detailsFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/detailsFragment"
+        android:name="com.cv.obegallery.presentation.details.DetailsFragment"
+        android:label="@string/detail"
+        tools:layout="@layout/fragment_details">
+        <!--        <action-->
+        <!--            android:id="@+id/action_detailFragment_to_detailBottomSheet"-->
+        <!--            app:destination="@id/detailBottomSheet" />-->
+    </fragment>
 </navigation>

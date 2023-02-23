@@ -25,4 +25,5 @@
     <color name="green_100">#EFFFE3</color>
 
     <color name="shimmer_color">#8C8C8C</color>
+    <color name="transparent">#00FFFFFF</color>
 </resources>

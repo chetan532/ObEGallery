@@ -1,7 +1,9 @@
 package com.cv.obegallery.presentation.home
 
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
+import androidx.core.view.ViewCompat
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
@@ -9,7 +11,11 @@ import coil.load
 import com.cv.obegallery.databinding.ItemGridPhotosBinding
 import com.cv.obegallery.models.NasaData
 
-class HomeGridAdapter : ListAdapter<NasaData, RecyclerView.ViewHolder>(DiffCallback) {
+class HomeGridAdapter(
+    val onItemClick: (position: Int, view: View?) -> Unit,
+    val onBindComplete: (position: Int) -> Unit
+) :
+    ListAdapter<NasaData, RecyclerView.ViewHolder>(DiffCallback) {
 
     inner class HomeGridViewHolder(private val binding: ItemGridPhotosBinding) :
         RecyclerView.ViewHolder(binding.root) {
@@ -18,6 +24,11 @@ class HomeGridAdapter : ListAdapter<NasaData, RecyclerView.ViewHolder>(DiffCallb
             binding.thumbnail.load(nasaData.url)
             binding.title.text = nasaData.title
             binding.date.text = nasaData.date
+            ViewCompat.setTransitionName(binding.thumbnail, nasaData.url)
+            binding.root.setOnClickListener {
+                onItemClick(position, binding.thumbnail)
+            }
+            onBindComplete(position)
         }
     }
 

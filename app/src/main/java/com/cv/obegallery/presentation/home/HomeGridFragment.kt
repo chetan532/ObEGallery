@@ -4,9 +4,12 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Observer
+import androidx.navigation.fragment.FragmentNavigatorExtras
+import androidx.navigation.fragment.findNavController
 import com.cv.obegallery.databinding.FragmentHomeGridBinding
 import com.cv.obegallery.presentation.main.MainViewModel
 import com.cv.obegallery.retrofit.Result
@@ -37,7 +40,6 @@ class HomeGridFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        mainViewModel.getNasaData()
         mainViewModel.nasaDataLiveData.observe(
             viewLifecycleOwner,
             Observer {
@@ -50,7 +52,15 @@ class HomeGridFragment : Fragment() {
                         binding.shimmerGridLayout.newsShimmerLayout.gone()
                         binding.recyclerViewPhotos.visible()
 
-                        homeGridAdapter = HomeGridAdapter().apply {
+                        homeGridAdapter = HomeGridAdapter(onItemClick = { position, view ->
+
+                            onItemClick(position, view)
+                        }, {
+
+                            if (mainViewModel.selectedIndex == it) {
+                                startPostponedEnterTransition()
+                            }
+                        }).apply {
 
                             if (it.data != null && it.data.size > 0) {
                                 submitList(GetSortedData(it.data).invoke())
@@ -74,8 +84,18 @@ class HomeGridFragment : Fragment() {
         )
     }
 
-    override fun onDestroyView() {
-        super.onDestroyView()
-        _binding = null
+    fun onItemClick(position: Int, view: View?) {
+        mainViewModel.selectedIndex = position
+        val extras =
+            FragmentNavigatorExtras((view as ImageView) to view.transitionName)
+        findNavController().navigate(
+            HomeGridFragmentDirections.actionFactsFragmentToDetailsFragment(),
+            extras
+        )
     }
+
+//    override fun onDestroyView() {
+//        super.onDestroyView()
+//        _binding = null
+//    }
 }

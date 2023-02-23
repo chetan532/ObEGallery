@@ -33,5 +33,7 @@ class MainActivity : AppCompatActivity() {
         (application as MainApplication).applicationComponent.inject(this)
 
         mainViewModel = ViewModelProvider(this, mainViewModelFactory)[MainViewModel::class.java]
+
+        mainViewModel.getNasaData()
     }
 }
