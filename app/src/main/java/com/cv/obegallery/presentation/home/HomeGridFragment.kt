@@ -10,6 +10,9 @@ import androidx.lifecycle.Observer
 import com.cv.obegallery.databinding.FragmentHomeGridBinding
 import com.cv.obegallery.presentation.main.MainViewModel
 import com.cv.obegallery.retrofit.Result
+import com.cv.obegallery.utils.GetSortedData
+import com.cv.obegallery.utils.gone
+import com.cv.obegallery.utils.visible
 
 class HomeGridFragment : Fragment() {
 
@@ -43,15 +46,28 @@ class HomeGridFragment : Fragment() {
 
                     is Result.Success -> {
 
+                        binding.shimmerGridLayout.newsShimmerLayout.stopShimmer()
+                        binding.shimmerGridLayout.newsShimmerLayout.gone()
+                        binding.recyclerViewPhotos.visible()
+
                         homeGridAdapter = HomeGridAdapter().apply {
-                            submitList(it.data)
+
+                            if (it.data != null && it.data.size > 0) {
+                                submitList(GetSortedData(it.data).invoke())
+                            }
                         }
 
                         binding.recyclerViewPhotos.adapter = homeGridAdapter
                     }
                     is Result.Error -> {
+                        binding.shimmerGridLayout.newsShimmerLayout.stopShimmer()
+                        binding.shimmerGridLayout.newsShimmerLayout.gone()
                     }
                     is Result.Loading -> {
+
+                        binding.shimmerGridLayout.newsShimmerLayout.startShimmer()
+                        binding.shimmerGridLayout.newsShimmerLayout.visible()
+                        binding.recyclerViewPhotos.gone()
                     }
                 }
             }

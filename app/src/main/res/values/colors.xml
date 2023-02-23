@@ -23,4 +23,6 @@
     <color name="green_300">#A3FF63</color>
     <color name="green_200">#D6FFBA</color>
     <color name="green_100">#EFFFE3</color>
+
+    <color name="shimmer_color">#8C8C8C</color>
 </resources>

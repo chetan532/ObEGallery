@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.facebook.shimmer.ShimmerFrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/newsShimmerLayout"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:visibility="visible"
+    app:shimmer_shape="linear"
+    app:shimmer_tilt="0">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="2">
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="0dp"
+                android:layout_height="@dimen/_100sdp"
+                app:cardCornerRadius="8dp"
+                app:cardElevation="0dp"
+                android:layout_weight="1"
+                app:cardBackgroundColor="@color/shimmer_color"
+                android:layout_margin="@dimen/_10sdp"/>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="0dp"
+                android:layout_height="@dimen/_100sdp"
+                app:cardCornerRadius="8dp"
+                app:cardElevation="0dp"
+                android:layout_weight="1"
+                app:cardBackgroundColor="@color/shimmer_color"
+                android:layout_margin="@dimen/_10sdp"/>
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="2">
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="0dp"
+                android:layout_height="@dimen/_100sdp"
+                app:cardCornerRadius="8dp"
+                app:cardElevation="0dp"
+                android:layout_weight="1"
+                app:cardBackgroundColor="@color/shimmer_color"
+                android:layout_margin="@dimen/_10sdp"/>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="0dp"
+                android:layout_height="@dimen/_100sdp"
+                app:cardCornerRadius="8dp"
+                app:cardElevation="0dp"
+                android:layout_weight="1"
+                app:cardBackgroundColor="@color/shimmer_color"
+                android:layout_margin="@dimen/_10sdp"/>
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="2">
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="0dp"
+                android:layout_height="@dimen/_100sdp"
+                app:cardCornerRadius="8dp"
+                app:cardElevation="0dp"
+                android:layout_weight="1"
+                app:cardBackgroundColor="@color/shimmer_color"
+                android:layout_margin="@dimen/_10sdp"/>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="0dp"
+                android:layout_height="@dimen/_100sdp"
+                app:cardCornerRadius="8dp"
+                app:cardElevation="0dp"
+                android:layout_weight="1"
+                app:cardBackgroundColor="@color/shimmer_color"
+                android:layout_margin="@dimen/_10sdp"/>
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="2">
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="0dp"
+                android:layout_height="@dimen/_100sdp"
+                app:cardCornerRadius="8dp"
+                app:cardElevation="0dp"
+                android:layout_weight="1"
+                app:cardBackgroundColor="@color/shimmer_color"
+                android:layout_margin="@dimen/_10sdp"/>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="0dp"
+                android:layout_height="@dimen/_100sdp"
+                app:cardCornerRadius="8dp"
+                app:cardElevation="0dp"
+                android:layout_weight="1"
+                app:cardBackgroundColor="@color/shimmer_color"
+                android:layout_margin="@dimen/_10sdp"/>
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="2">
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="0dp"
+                android:layout_height="@dimen/_100sdp"
+                app:cardCornerRadius="8dp"
+                app:cardElevation="0dp"
+                android:layout_weight="1"
+                app:cardBackgroundColor="@color/shimmer_color"
+                android:layout_margin="@dimen/_10sdp"/>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="0dp"
+                android:layout_height="@dimen/_100sdp"
+                app:cardCornerRadius="8dp"
+                app:cardElevation="0dp"
+                android:layout_weight="1"
+                app:cardBackgroundColor="@color/shimmer_color"
+                android:layout_margin="@dimen/_10sdp"/>
+
+
+        </LinearLayout>
+
+    </LinearLayout>
+</com.facebook.shimmer.ShimmerFrameLayout>
