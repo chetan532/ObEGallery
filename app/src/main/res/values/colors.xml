@@ -16,14 +16,6 @@
     <color name="purple_200">#CAB8FF</color>
     <color name="purple_100">#E7E0FF</color>
 
-    <color name="green_900">#091700</color>
-    <color name="green_800">#132D00</color>
-    <color name="green_700">#183A00</color>
-    <color name="green_500">#2B6900</color>
-    <color name="green_300">#A3FF63</color>
-    <color name="green_200">#D6FFBA</color>
-    <color name="green_100">#EFFFE3</color>
-
     <color name="shimmer_color">#8C8C8C</color>
     <color name="transparent">#00FFFFFF</color>
 </resources>

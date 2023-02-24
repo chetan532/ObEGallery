@@ -5,16 +5,12 @@
         <item name="colorPrimary">@color/purple_900</item>
         <item name="colorPrimaryVariant">@color/purple_900</item>
         <item name="colorOnPrimary">@color/purple_100</item>
-        <!-- Secondary brand color. -->
-        <item name="colorSecondary">@color/green_900</item>
-        <item name="colorSecondaryVariant">@color/green_900</item>
-        <item name="colorOnSecondary">@color/green_100</item>
         <!-- Status bar color. -->
         <item name="android:statusBarColor">@android:color/transparent</item>
         <item name="android:navigationBarColor">@android:color/transparent</item>
         <!-- Customize your theme here. -->
         <item name="colorSurface">@color/purple_100</item>
-        <item name="colorOnSurface">@color/green_100</item>
+        <item name="colorOnSurface">@color/purple_800</item>
         <item name="bottomSheetDialogTheme">@style/Base.ThemeOverlay.Deepsky.BottomSheetDialog
         </item>
     </style>
