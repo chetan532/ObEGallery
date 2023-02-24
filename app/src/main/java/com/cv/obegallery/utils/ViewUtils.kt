@@ -17,3 +17,13 @@ fun View.inVisible() {
 fun View.isVisible(): Boolean {
     return visibility == View.VISIBLE
 }
+
+fun View.animateAndShow() {
+    visibility = View.VISIBLE
+    alpha = 0.0f
+
+    animate().setStartDelay(400)
+        .translationY(0f)
+        .alpha(1f)
+        .setListener(null)
+}

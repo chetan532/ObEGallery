@@ -12,11 +12,12 @@
         android:scaleType="centerCrop" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/detailView"
+        android:id="@+id/pagerDetailsConstraint"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/_25sdp"
         android:background="@drawable/details_item_gradient"
-        android:visibility="gone"
+        android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -28,11 +29,11 @@
             style="@style/TextAppearance.MaterialComponents.Headline4"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="32dp"
-            android:layout_marginTop="72dp"
-            android:layout_marginEnd="32dp"
-            android:layout_marginBottom="16dp"
-            android:lineSpacingExtra="4dp"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:layout_marginEnd="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_25sdp"
+            android:layout_marginBottom="@dimen/_10sdp"
+            android:lineSpacingExtra="3dp"
             android:textAlignment="center"
             android:textColor="?attr/colorOnPrimary"
             android:textStyle="bold"
@@ -40,20 +41,37 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            tools:text="The Magnetic Fields of Spiral Galaxy M77" />
+            android:text="Starburst Galaxy M94 from Hubble" />
 
         <TextView
             android:id="@+id/date"
             style="@style/TextAppearance.MaterialComponents.Overline"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="16dp"
+            android:layout_marginBottom="@dimen/_10sdp"
+            android:textAlignment="center"
+            android:textSize="@dimen/_11ssp"
+            android:textColor="?attr/colorOnPrimary"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/viewMore"
+            app:layout_constraintEnd_toEndOf="@+id/title"
+            app:layout_constraintStart_toStartOf="@+id/title"
+            android:text="2019-12-01" />
+
+        <TextView
+            android:id="@+id/viewMore"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/_10sdp"
+            android:drawableBottom="@drawable/ic_details_arrow_bottom"
+            android:drawableTint="?attr/colorOnPrimary"
+            android:drawablePadding="@dimen/_8sdp"
             android:textAlignment="center"
             android:textColor="?attr/colorOnPrimary"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="@+id/title"
             app:layout_constraintStart_toStartOf="@+id/title"
-            tools:text="20 June 2022" />
+            android:text="View More" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

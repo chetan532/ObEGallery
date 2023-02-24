@@ -4,10 +4,13 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.view.doOnPreDraw
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
+import androidx.navigation.fragment.findNavController
 import androidx.viewpager2.widget.ViewPager2
 import com.cv.obegallery.databinding.FragmentDetailsBinding
+import com.cv.obegallery.models.NasaData
 import com.cv.obegallery.presentation.main.MainViewModel
 import com.cv.obegallery.retrofit.Result
 import com.cv.obegallery.utils.DepthPageTransformer
@@ -18,7 +21,11 @@ class DetailsFragment : Fragment() {
     private val mainViewModel: MainViewModel by activityViewModels()
     private var _binding: FragmentDetailsBinding? = null
     private val binding get() = _binding!!
-    val detailsPagerAdapter by lazy { DetailsPagerAdapter() }
+    val detailsPagerAdapter by lazy {
+        DetailsPagerAdapter(onItemClick = {
+            onItemClick(it)
+        })
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -34,6 +41,12 @@ class DetailsFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        (view.parent as? ViewGroup)?.doOnPreDraw {
+            startPostponedEnterTransition()
+        }
+
+        binding.toolbar.setNavigationOnClickListener { findNavController().navigateUp() }
+
         mainViewModel.nasaDataLiveData.observeForever {
             when (it) {
                 is Result.Success -> {
@@ -47,6 +60,9 @@ class DetailsFragment : Fragment() {
         }
 
         setupViewPager()
+    }
+
+    fun onItemClick(nasaData: NasaData) {
     }
 
     private fun setupViewPager() {
