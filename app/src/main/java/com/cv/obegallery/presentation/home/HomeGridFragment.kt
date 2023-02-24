@@ -5,11 +5,15 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
+import androidx.core.app.SharedElementCallback
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.FragmentNavigatorExtras
 import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.RecyclerView
+import androidx.transition.TransitionInflater
+import com.cv.obegallery.R
 import com.cv.obegallery.databinding.FragmentHomeGridBinding
 import com.cv.obegallery.presentation.main.MainViewModel
 import com.cv.obegallery.retrofit.Result
@@ -39,7 +43,8 @@ class HomeGridFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
+        prepareTransitions()
+        postponeEnterTransition()
         mainViewModel.nasaDataLiveData.observe(
             viewLifecycleOwner,
             Observer {
@@ -82,6 +87,8 @@ class HomeGridFragment : Fragment() {
                 }
             }
         )
+
+        scrollToPosition()
     }
 
     fun onItemClick(position: Int, view: View?) {
@@ -94,8 +101,59 @@ class HomeGridFragment : Fragment() {
         )
     }
 
-//    override fun onDestroyView() {
-//        super.onDestroyView()
-//        _binding = null
-//    }
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
+    }
+
+    private fun scrollToPosition() {
+        binding.recyclerViewPhotos.addOnLayoutChangeListener(object : View.OnLayoutChangeListener {
+            override fun onLayoutChange(
+                v: View,
+                left: Int,
+                top: Int,
+                right: Int,
+                bottom: Int,
+                oldLeft: Int,
+                oldTop: Int,
+                oldRight: Int,
+                oldBottom: Int
+            ) {
+                binding.recyclerViewPhotos.removeOnLayoutChangeListener(this)
+                val viewAtPosition = binding.recyclerViewPhotos.layoutManager
+                    ?.getChildAt(mainViewModel.selectedIndex)
+                if (viewAtPosition == null ||
+                    binding.recyclerViewPhotos.layoutManager?.isViewPartiallyVisible(
+                            viewAtPosition,
+                            false,
+                            true
+                        ) == true
+                ) {
+                    binding.recyclerViewPhotos.post {
+                        binding.recyclerViewPhotos.layoutManager
+                            ?.scrollToPosition(mainViewModel.selectedIndex)
+                    }
+                }
+            }
+        })
+    }
+
+    private fun prepareTransitions() {
+        exitTransition = TransitionInflater.from(requireContext())
+            .inflateTransition(R.transition.grid_exit_transition)
+
+        setExitSharedElementCallback(
+            object : SharedElementCallback() {
+                override fun onMapSharedElements(
+                    names: List<String?>,
+                    sharedElements: MutableMap<String?, View?>
+                ) {
+                    val selectedViewHolder: RecyclerView.ViewHolder = binding.recyclerViewPhotos
+                        .findViewHolderForAdapterPosition(mainViewModel.selectedIndex) ?: return
+
+                    sharedElements[names[0]] =
+                        selectedViewHolder.itemView.findViewById(R.id.thumbnail)
+                }
+            })
+    }
 }

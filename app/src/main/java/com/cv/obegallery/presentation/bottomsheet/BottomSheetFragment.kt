@@ -59,9 +59,12 @@ class BottomSheetFragment : BottomSheetDialogFragment() {
                     as FrameLayout
             BottomSheetBehavior.from(bottomSheet).state =
                 BottomSheetBehavior.STATE_EXPANDED
-//            BottomSheetBehavior.from(bottomSheet).skipCollapsed = true
-//            BottomSheetBehavior.from(bottomSheet).isHideable = true
         }
         return bottomSheetDialog
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 }

@@ -4,11 +4,16 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.app.SharedElementCallback
 import androidx.core.view.doOnPreDraw
+import androidx.core.view.get
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.RecyclerView
+import androidx.transition.TransitionInflater
 import androidx.viewpager2.widget.ViewPager2
+import com.cv.obegallery.R
 import com.cv.obegallery.databinding.FragmentDetailsBinding
 import com.cv.obegallery.models.NasaData
 import com.cv.obegallery.presentation.main.MainViewModel
@@ -40,7 +45,8 @@ class DetailsFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
+        prepareSharedElementTransition()
+        postponeEnterTransition()
         (view.parent as? ViewGroup)?.doOnPreDraw {
             startPostponedEnterTransition()
         }
@@ -86,5 +92,28 @@ class DetailsFragment : Fragment() {
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
+    }
+
+    private fun prepareSharedElementTransition() {
+        val transition = TransitionInflater.from(requireContext())
+            .inflateTransition(R.transition.image_shared_element_transition)
+        sharedElementEnterTransition = transition
+
+        setEnterSharedElementCallback(
+            object : SharedElementCallback() {
+                override fun onMapSharedElements(
+                    names: List<String>,
+                    sharedElements: MutableMap<String, View>
+                ) {
+
+                    val selectedViewHolder =
+                        (binding.viewPager[0] as RecyclerView).findViewHolderForAdapterPosition(
+                            mainViewModel.selectedIndex
+                        ) ?: return
+
+                    sharedElements[names[0]] =
+                        selectedViewHolder.itemView.findViewById(R.id.largeImage)
+                }
+            })
     }
 }
