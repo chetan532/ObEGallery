@@ -20,8 +20,18 @@
         android:name="com.cv.obegallery.presentation.details.DetailsFragment"
         android:label="@string/detail"
         tools:layout="@layout/fragment_details">
-        <!--        <action-->
-        <!--            android:id="@+id/action_detailFragment_to_detailBottomSheet"-->
-        <!--            app:destination="@id/detailBottomSheet" />-->
+        <action
+            android:id="@+id/action_detailsFragment_to_bottomSheetFragment"
+            app:destination="@id/bottomSheetFragmentDialog" />
     </fragment>
+
+    <dialog
+        android:id="@+id/bottomSheetFragmentDialog"
+        android:name="com.cv.obegallery.presentation.bottomsheet.BottomSheetFragment"
+        android:label="@string/bottomsheet"
+        tools:layout="@layout/fragment_bottom_sheet">
+        <argument
+            android:name="nasadata"
+            app:argType="com.cv.obegallery.models.NasaData" />
+    </dialog>
 </navigation>

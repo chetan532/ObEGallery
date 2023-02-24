@@ -6,4 +6,5 @@
     <string name="discovery_nasa_description">Some of the best click of space by Nasa</string>
     <string name="detail">Details</string>
     <string name="home">Home</string>
+    <string name="bottomsheet">BottomSheetFragment</string>
 </resources>

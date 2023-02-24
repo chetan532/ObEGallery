@@ -15,6 +15,8 @@
         <!-- Customize your theme here. -->
         <item name="colorSurface">@color/purple_100</item>
         <item name="colorOnSurface">@color/green_100</item>
+        <item name="bottomSheetDialogTheme">@style/Base.ThemeOverlay.Deepsky.BottomSheetDialog
+        </item>
     </style>
 
     <style name="Theme.App.Splash" parent="Theme.SplashScreen">
@@ -30,5 +32,18 @@
         // Set the theme of the Activity that directly follows your splash screen.
         <item name="postSplashScreenTheme">@style/Theme.ObEGallery</item>
         # Required.
+    </style>
+
+    <style name="Base.ThemeOverlay.Deepsky.BottomSheetDialog" parent="ThemeOverlay.MaterialComponents.BottomSheetDialog">
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:backgroundDimEnabled">true</item>
+        <item name="android:colorBackground">@android:color/transparent</item>
+        <item name="android:windowIsFloating">false</item>
+        <item name="bottomSheetStyle">@style/BottomSheetStyle</item>
+        <item name="android:navigationBarColor">?attr/colorPrimary</item>
+    </style>
+
+    <style name="BottomSheetStyle" parent="Widget.Design.BottomSheet.Modal">
+        <item name="android:background">@drawable/sheet_background</item>
     </style>
 </resources>

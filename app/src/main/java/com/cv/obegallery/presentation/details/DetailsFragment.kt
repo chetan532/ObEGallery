@@ -63,6 +63,11 @@ class DetailsFragment : Fragment() {
     }
 
     fun onItemClick(nasaData: NasaData) {
+        findNavController().navigate(
+            DetailsFragmentDirections.actionDetailsFragmentToBottomSheetFragment(
+                nasaData
+            )
+        )
     }
 
     private fun setupViewPager() {

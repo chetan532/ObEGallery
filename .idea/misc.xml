@@ -8,7 +8,9 @@
         <entry key="..\:/Projects/Client Projects/ObEGallery/app/src/main/res/drawable/details_item_gradient.xml" value="0.207" />
         <entry key="..\:/Projects/Client Projects/ObEGallery/app/src/main/res/drawable/ic_launcher_background.xml" value="0.207" />
         <entry key="..\:/Projects/Client Projects/ObEGallery/app/src/main/res/drawable/item_grid_drawable.xml" value="0.207" />
+        <entry key="..\:/Projects/Client Projects/ObEGallery/app/src/main/res/drawable/sheet_background.xml" value="0.205" />
         <entry key="..\:/Projects/Client Projects/ObEGallery/app/src/main/res/layout/activity_main.xml" value="0.25" />
+        <entry key="..\:/Projects/Client Projects/ObEGallery/app/src/main/res/layout/fragment_bottom_sheet.xml" value="0.32760416666666664" />
         <entry key="..\:/Projects/Client Projects/ObEGallery/app/src/main/res/layout/fragment_details.xml" value="0.25" />
         <entry key="..\:/Projects/Client Projects/ObEGallery/app/src/main/res/layout/fragment_home_grid.xml" value="0.33177083333333335" />
         <entry key="..\:/Projects/Client Projects/ObEGallery/app/src/main/res/layout/item_full_image_pager.xml" value="0.33" />
