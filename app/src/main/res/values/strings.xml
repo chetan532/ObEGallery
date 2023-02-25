@@ -1,6 +1,5 @@
 <resources>
     <string name="app_name">ObEGallery</string>
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="discovery_nasa">Top NASA Photos of All Time</string>
     <string name="discovery_nasa_description">Some of the best click of space by Nasa</string>
