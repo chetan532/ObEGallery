@@ -1,5 +1,3 @@
-# ObEGallery
-Android app with modern libraries like Dagger, Coroutines, MVVM to showcase NASA Picture of the Day
 <h1>ObEGallery</h1>
 <h4>Android app with modern libraries like Dagger, Coroutines, MVVM to showcase NASA Picture of the Day</h4>
 
