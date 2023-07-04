@@ -23,6 +23,8 @@ Experience the future of space exploration and astronomy with our Android app, p
 - COROUTINES
 - COIL IMAGE LOAD
 - Mockito (Testing)
+
+![Demo ObEGallery](https://github.com/chetan532/ObEGallery/blob/main/resource/demo_video.gif)
   
 <h2>Download</h2>
 
