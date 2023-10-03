@@ -9,7 +9,9 @@ Our app follows the MVVM (Model-View-ViewModel) architectural pattern, ensuring 
 
 Immerse yourself in stunning visuals and intriguing astronomical information as you scroll through the collection of NASA's Picture of the Day. The app's sleek and intuitive user interface enhances your browsing experience, providing a seamless navigation flow.
 
-Stay up to date with the latest cosmic marvels by exploring the app's various features. Save your favorite images to revisit them later or share them with friends and family. Engage in a learning experience by reading detailed descriptions and scientific explanations accompanying each captivating image.
+Stay up to date with the latest 
+
++3cosmic marvels by exploring the app's various features. Save your favorite images to revisit them later or share them with friends and family. Engage in a learning experience by reading detailed descriptions and scientific explanations accompanying each captivating image.
 
 Experience the future of space exploration and astronomy with our Android app, powered by Dagger, Coroutines, and MVVM architecture. Download it now and embark on a visual journey through the vast wonders of the universe.
 
