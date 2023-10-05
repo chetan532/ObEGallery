@@ -27,7 +27,7 @@ class DetailsPagerAdapter(val onItemClick: (nasaData: NasaData) -> Unit) :
     inner class DetailsPagerViewHolder(private val binding: ItemFullImagePagerBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
-        fun onBind(nasaData: NasaData, position: Int) {
+        fun onBind(nasaData: NasaData) {
             binding.largeImage.load(nasaData.url)
             binding.title.text = nasaData.title
             binding.date.text = nasaData.date
@@ -50,7 +50,7 @@ class DetailsPagerAdapter(val onItemClick: (nasaData: NasaData) -> Unit) :
         val cast = getItem(position)
 
         cast.let {
-            viewHolder.onBind(it, position)
+            viewHolder.onBind(it)
         }
     }
 }
