@@ -3,7 +3,7 @@ jobs:
   build:
     working_directory: ~/circle-kt
     docker: # See https://docs.docker.com/get-started/#docker-concepts if you are new to Docker.
-      - image: circleci/openjdk:11-jdk-browsers
+      - image: docker:stable-git
 
     environment:
       # Customize the JVM maximum heap limit
